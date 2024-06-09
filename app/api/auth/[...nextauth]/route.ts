@@ -1,9 +1,12 @@
 import bcrypt from "bcrypt";
+import NextAuth from "next-auth/next";
+import prisma from "@/lib/prismadb";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
-import prisma from "@/lib/prismadb"; // Prisma bağlantısını doğru yapılandırdığınızdan emin olun
-import { AuthOptions } from "next-auth";
 import { signInSchema } from "@/lib/zod/types";
+import { JWT } from "next-auth/jwt";
+import { AuthOptions, Session, User } from "next-auth";
+
 
 export const authOptions: AuthOptions = {
     adapter: PrismaAdapter(prisma),
@@ -65,3 +68,8 @@ export const authOptions: AuthOptions = {
     },
     debug: false
 };
+
+const handler = NextAuth(authOptions);
+
+
+export { handler as GET, handler as POST };
