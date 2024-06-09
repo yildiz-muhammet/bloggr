@@ -149,8 +149,12 @@ border border-gray-200 shadow-lg focus:outline-none   p-2   w-[225px]
 
                                     <div className='flex items-center py-3 gap-3  border-b border-gray-100 cursor-pointer'
                                         onClick={async () => {
-                                            await signOut()
-                                            router.push('/')
+                                            await signOut(
+                                                {
+                                                    redirect: false, callbackUrl: 'https://next-blog-2024.netlify.app/' 
+                                                }
+                                            )
+                                            router.push('https://next-blog-2024.netlify.app/')
                                         } }
                                     >
                                         <IoLogOutOutline
