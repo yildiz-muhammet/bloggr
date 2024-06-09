@@ -75,7 +75,7 @@ export async function POST(request: any) {
     const relatedTags = formData.get('relatedtags')
 
 
-    const currentTag = await prisma.tag.findUnique({
+    const currentTag = await prisma.tag.findFirst({
         where: {
             id: JSON.parse(relatedTags)[0]
         }
