@@ -1,8 +1,7 @@
-import CategoryList from "@/containers/category-list";
 import Navbar from "@/containers/navbar";
 import MainLayout from "@/containers/main-layout";
 import { AuthOptions, getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/route";
+import { authOptions } from  "@/lib/authOptions"
 
 export default async function Home() {
 
@@ -14,8 +13,7 @@ export default async function Home() {
 
   return (
     < >
-      {/* <CategoryList /> */}
-      <Navbar currentUser={session  } />
+      <Navbar />
       <MainLayout />
     </>
   )
