@@ -24,7 +24,7 @@ export default function AccountPopover({ currentUser }: Props) {
     const [open, setOpen] = React.useState(false)
     const router = useRouter()
 
-        
+
 
     return (
         <>
@@ -39,8 +39,8 @@ export default function AccountPopover({ currentUser }: Props) {
 
                             >
                                 <Image src={
-                          currentUser?.image ?          `/images/${currentUser?.image}`
-                                   :'/user.jpg'}
+                                    currentUser?.image ? `/images/${currentUser?.image}`
+                                        : '/user.jpg'}
                                     width={29} height={29}
                                     className='rounded-sm mr-1'
                                     alt='profile'
@@ -48,8 +48,8 @@ export default function AccountPopover({ currentUser }: Props) {
                                 <div className='text-left pt-[2px]'>
                                     <p
                                         className='text-xs font-medium text-gray-500 '
-                                        
-                    
+
+
                                     >
                                         {currentUser?.username}
                                     </p>
@@ -86,8 +86,8 @@ border border-gray-200 shadow-lg focus:outline-none   p-2   w-[225px]
 
                                     <div className='flex gap-2 items-center border-b border-gray-100 pb-3'  >
                                         <Image src={
-                                     currentUser?.image ?       `/images/${currentUser?.image}`
-                                            :'/user.jpg'}
+                                            currentUser?.image ? `/images/${currentUser?.image}`
+                                                : '/user.jpg'}
                                             width={33} height={33}
                                             className='rounded-sm mr-1'
                                             alt='profile'
@@ -127,7 +127,7 @@ border border-gray-200 shadow-lg focus:outline-none   p-2   w-[225px]
                                         </p>
                                     </div>
                                 </Menu.Item>
-                                
+
                                 <Menu.Item >
 
                                     <div className='flex items-center py-3 gap-3  border-b border-gray-100 cursor-pointer'
@@ -144,15 +144,14 @@ border border-gray-200 shadow-lg focus:outline-none   p-2   w-[225px]
                                         </p>
                                     </div>
                                 </Menu.Item>
-                                
+
                                 <Menu.Item>
 
                                     <div className='flex items-center py-3 gap-3  border-b border-gray-100 cursor-pointer'
-                                        onClick={() => signOut(
-                                            {
-                                                callbackUrl: 'https://next-blog-2024.netlify.app/'
-                                            }
-                                        )}
+                                        onClick={async () => {
+                                            await signOut()
+                                            router.push('/')
+                                        } }
                                     >
                                         <IoLogOutOutline
                                             size={20}
