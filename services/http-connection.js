@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: `http://localhost:3000` + "/api",
+    baseURL: `https://next-blog-2024.netlify.app` + "/api",
     headers: {
         "Content-type": "application/json",
         "Access-Control-Allow-Origin": "*",
