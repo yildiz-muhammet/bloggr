@@ -86,7 +86,9 @@ export async function POST(request: any) {
     if (image) {
         const bytes = await image.arrayBuffer()
         const buffer = Buffer.from(bytes)
-        const filePath = path.join(uploadDir, fileName)
+        const filePath = path.join(
+            'public', 'images'
+            , fileName)
         await fs.writeFile(filePath, buffer)
     }
 
