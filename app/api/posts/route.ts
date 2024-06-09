@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from 'next/server';
 import prisma from "@/lib/prismadb";
 import path from 'path';
-import { authOptions } from "../auth/[...nextauth]/route";
+import { authOptions } from "@/lib/authOptions";
 import { getServerSession } from "next-auth"
 
 const uploadDir = path.join(process.cwd(), 'public', 'images');
