@@ -26,10 +26,8 @@ export const Editor = () => {
     const initializeEditor = async () => {
         const EditorJS = (await import("@editorjs/editorjs")).default
         const Header = (await import("@editorjs/header")).default
-        // const List = (await import("@editorjs/list")).default
-        // const Embed = (await import("@editorjs/embed")).default
+        // const Embed = (await import("@editorjs/embed"))
         // // const Image = (await import("@editorjs/image")).default
-        // const Table = (await import("@editorjs/table")).default
         // const Paragraph = (await import("@editorjs/paragraph")).default
         // const LinkTool = (await import("@editorjs/link")).default
         // const Quote = (await import("@editorjs/quote")).default
@@ -41,8 +39,7 @@ export const Editor = () => {
             const editor = new EditorJS({
                 holder: ref.current,
                 tools: {
-                    header: Header,
-                    // list: List,
+                    header: Header
                     // embed: Embed,
                     // table: Table,
                     // paragraph: Paragraph,
@@ -94,7 +91,7 @@ export const Editor = () => {
                 selectedFile && formData.append("image", selectedFile);
                 formData.append("title", title);
                 formData.append("content", JSON.stringify(outputData));
-                formData.append("relatedtags",  JSON.stringify(selectedTags.map((tag) => tag.id)));
+                formData.append("relatedtags", JSON.stringify(selectedTags.map((tag) => tag.id)));
 
                 try {
                     const res = await fetch("/api/posts", {
@@ -102,7 +99,7 @@ export const Editor = () => {
                         body: formData,
                     });
 
-                    console.log("ress >>>" , res )
+                    console.log("ress >>>", res)
 
                     toast.success('Post created successfully')
 
@@ -128,13 +125,13 @@ export const Editor = () => {
                     onChange={(e) => setTitle(e.target.value)}
                 />
 
-                <AddTagsPopover 
+                <AddTagsPopover
                     selectedTags={selectedTags}
                     setSelectedTags={setSelectedTags}
                 />
 
             </div>
-          
+
             <div
                 className=" w-[650px]  mx-auto relative   flex gap-3 my-2 flex-wrap justify-start "
             >
@@ -162,7 +159,7 @@ export const Editor = () => {
                 className="relative flex flex-col text-gray-400  rounded cursor-pointer mb-3
             w-[650px] mx-auto
         ">
-              
+
 
                 {selectedImage ? <img src={selectedImage}
                     alt="postimage"
@@ -172,20 +169,20 @@ export const Editor = () => {
                          "
 
                 /> :
-                <>
-                <input type="file" accept="image/*"
-                className="absolute inset-0 z-50 w-full h-full p-0 m-0 outline-none opacity-0 cursor-pointer
+                    <>
+                        <input type="file" accept="image/*"
+                            className="absolute inset-0 z-50 w-full h-full p-0 m-0 outline-none opacity-0 cursor-pointer
         "
-                onChange={({ target }) => {
-                    if (target.files) {
-                        const file = target.files[0];
-                        file && setSelectedImage(URL.createObjectURL(file));
-                        setSelectedFile(file);
-                    }
-                }
-                }
-            />
-                    <div className="flex 
+                            onChange={({ target }) => {
+                                if (target.files) {
+                                    const file = target.files[0];
+                                    file && setSelectedImage(URL.createObjectURL(file));
+                                    setSelectedFile(file);
+                                }
+                            }
+                            }
+                        />
+                        <div className="flex 
             flex-row
          items-center justify-center py-3 text-center
             border  rounded-md
@@ -193,20 +190,20 @@ export const Editor = () => {
             shadow-sm my-2
              border-gray-100 
         " >
-                        <div
-                            className="flex gap-4 "
-                        >
-                            <MdOutlineImage className="w-6 h-6 mx-auto text-gray-400" />
-                            <p className="
+                            <div
+                                className="flex gap-4 "
+                            >
+                                <MdOutlineImage className="w-6 h-6 mx-auto text-gray-400" />
+                                <p className="
             
                 mx-auto text-gray-400
             ">
-                                Select an Image
+                                    Select an Image
 
-                            </p>
+                                </p>
+                            </div>
+
                         </div>
-
-                    </div>
                     </>
                 }
 
@@ -219,7 +216,7 @@ export const Editor = () => {
             "
                     onClick={() => setSelectedImage("")}
                 >
-                    <RiCloseLine 
+                    <RiCloseLine
                         className="w-6 h-6 mx-auto "
                     />
                 </button>}
@@ -241,12 +238,12 @@ export const Editor = () => {
                 cursor-pointer
                 z-30
             '
-                    disabled={!title }
+                disabled={!title}
 
                 onClick={save}
             >
                 Publish
-           
+
             </button>
 
 
