@@ -26,15 +26,15 @@ export const Editor = () => {
     const initializeEditor = async () => {
         const EditorJS = (await import("@editorjs/editorjs")).default
         const Header = (await import("@editorjs/header")).default
-        const List = (await import("@editorjs/list")).default
-        const Embed = (await import("@editorjs/embed")).default
-        // const Image = (await import("@editorjs/image")).default
-        const Table = (await import("@editorjs/table")).default
-        const Paragraph = (await import("@editorjs/paragraph")).default
-        const LinkTool = (await import("@editorjs/link")).default
-        const Quote = (await import("@editorjs/quote")).default
-        const Warning = (await import("@editorjs/warning")).default
-        const Marker = (await import("@editorjs/marker")).default
+        // const List = (await import("@editorjs/list")).default
+        // const Embed = (await import("@editorjs/embed")).default
+        // // const Image = (await import("@editorjs/image")).default
+        // const Table = (await import("@editorjs/table")).default
+        // const Paragraph = (await import("@editorjs/paragraph")).default
+        // const LinkTool = (await import("@editorjs/link")).default
+        // const Quote = (await import("@editorjs/quote")).default
+        // const Warning = (await import("@editorjs/warning")).default
+        // const Marker = (await import("@editorjs/marker")).default
         // const Code = (await import("@editorjs/code")).default
 
         if (ref.current) {
@@ -42,14 +42,14 @@ export const Editor = () => {
                 holder: ref.current,
                 tools: {
                     header: Header,
-                    list: List,
-                    embed: Embed,
-                    table: Table,
-                    paragraph: Paragraph,
-                    linkTool: LinkTool,
-                    quote: Quote,
-                    warning: Warning,
-                    marker: Marker,
+                    // list: List,
+                    // embed: Embed,
+                    // table: Table,
+                    // paragraph: Paragraph,
+                    // linkTool: LinkTool,
+                    // quote: Quote,
+                    // warning: Warning,
+                    // marker: Marker,
                 },
             });
 
