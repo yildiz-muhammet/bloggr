@@ -13,7 +13,7 @@ export async function middleware(request: NextRequest) {
 
     const hasVerifiedToken = await decode({
         token: token as string,
-        secret: process.env.SECRET as string,
+        secret: process.env.NEXTAUTH_SECRET as string,
     });
     console.log('middleware calıstı ')
 
