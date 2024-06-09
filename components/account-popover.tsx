@@ -148,7 +148,11 @@ border border-gray-200 shadow-lg focus:outline-none   p-2   w-[225px]
                                 <Menu.Item>
 
                                     <div className='flex items-center py-3 gap-3  border-b border-gray-100 cursor-pointer'
-                                        onClick={() => signOut()}
+                                        onClick={() => signOut(
+                                            {
+                                                callbackUrl: '/'
+                                            }
+                                        )}
                                     >
                                         <IoLogOutOutline
                                             size={20}
