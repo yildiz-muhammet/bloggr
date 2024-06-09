@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+    .error-text {
+        @apply text-red-400 font-bold text-[0.75rem] pl-3 p-1;
+    }
+    .input {
+        /* @apply border border-gray-500 rounded-md py-1 px-4 */
+        @apply block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 pl-3;
+    }
+    .input:focus {
+        @apply ring-2 ring-inset ring-indigo-600 outline-none
+    }
+    .input-wrapper {
+        @apply relative flex flex-col h-auto;
+    }
+    .label {
+        @apply block text-sm font-medium leading-6 mb-2;
+    }
+}
